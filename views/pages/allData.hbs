@@ -1,0 +1,35 @@
+{{!-- Step 8 and 9 --}}
+
+<h2>All Books Data</h2>
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>ISBN</th>
+      <th>Page Count</th>
+      <th>Published Date</th>
+      <th>Short Description</th>
+      {{!-- <th>Long Description</th> --}}
+      <th>Status</th>
+      <th>Authors</th>
+      <th>Categories</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each bookData}}
+    {{!-- {{#if pageCount}} --}}
+    <tr class="{{#ifEq pageCount 0}}highlighted{{/ifEq}}">
+      <td>{{title}}</td>
+      <td>{{isbn}}</td>
+      <td>{{zeroIfEmpty pageCount}}</td>
+      <td>{{publishedDate.$date}}</td>
+      <td>{{shortDescription}}</td>
+      {{!-- <td>{{longDescription}}</td> --}}
+      <td>{{status}}</td>
+      <td>{{authors}}</td>
+      <td>{{categories}}</td>
+    </tr>
+    {{!-- {{/if}} --}}
+    {{/each}}
+  </tbody>
+</table>
